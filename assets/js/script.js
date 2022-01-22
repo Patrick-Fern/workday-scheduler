@@ -22,9 +22,9 @@ var setDate = function() {
 
 $(".task").on("click", function() {
     // check to see if there are open textarea's and if so, close them before opening a new one
-    if ($("<textarea>").length > 0 ) {
+    // if ($("<textarea>").length > 0 ) {
 
-    } 
+    // } 
     // get current text of p element
     var text = $(this)
       .text()
@@ -43,18 +43,14 @@ $(".task").on("click", function() {
   });
   
   // editable field was un-focused
-  $(".task").on("blur", "textarea", function() {
+  $(".btn").on("click", function() {
     // get current value of textarea
-    var text = $(this).val();
+    var text = $("<textarea>").closest.val().text().trim();
+    console.log(text);
+
   
     // get status type and position in the list
-    var status = $(this)
-      .closest(".task")
-      .attr("id")
-      .replace("list-", "");
-    var index = $(this)
-      .closest(".list-group-item")
-      .index();
+  
   });
       
 
