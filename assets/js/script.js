@@ -39,13 +39,13 @@ $(".task").on("click", function() {
   
     // auto focus new element
     textInput.trigger("focus");
-    console.log("test");
+
   });
   
   // editable field was un-focused
   $(".btn").on("click", function() {
     // get current value of textarea
-    var text = $("<textarea>").closest.val().text().trim();
+    var text = $("<textarea>").val();
     console.log(text);
 
   
