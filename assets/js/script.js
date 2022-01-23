@@ -1,6 +1,7 @@
 var today = document.querySelector("#currentDay");
 var day = new Date();
 var currentTime = day.getHours();
+var toDos = [];
 
 
 var setDate = function() {
@@ -20,38 +21,33 @@ var setDate = function() {
     }
 };
 
-$(".task").on("click", function() {
-    // check to see if there are open textarea's and if so, close them before opening a new one
-    // if ($("<textarea>").length > 0 ) {
+var loadTasks = function() {
+    toDos = JSON.parse(localStorage.getItem("toDos"));
+    
+    for(var i = 0; i < toDos.length; i++){
+        document.getElementById(toDos[i].id).value = toDos[i].val
+    }
+}
 
-    // } 
-    // get current text of p element
-    var text = $(this)
-      .text()
-      .trim();
-  
-    // replace p element with a new textarea
-    var textInput = $("<textarea>")
-     // .addClass("form-control ")
-      .val(text);
-    $(this).append(textInput);
-    console.log($(this))
-  
-    // auto focus new element
-    textInput.trigger("focus");
+loadTasks();
 
-  });
-  
-  // editable field was un-focused
-  $(".btn").on("click", function() {
-    // get current value of textarea
-    var text = $("<textarea>").val();
-    console.log(text);
+var saveTasks = function () {
+    localStorage.setItem("toDos", JSON.stringify(toDos));
+}
 
-  
-    // get status type and position in the list
-  
-  });
-      
+
+
+$(".btn").on("click", function (){
+    var taskVal = $(this).prev().val();
+    var textAreaId = $(this).prev().attr('id');
+    var task = { id: textAreaId, val: taskVal}
+    toDos.push(task)
+    saveTasks();
+})
+
+   
+setInterval(function(){
+    setDate();
+}, 1800000);
 
 setDate();
