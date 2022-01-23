@@ -17,3 +17,8 @@ https://patrick-fern.github.io/workday-scheduler/
 ## Repository 
 https://github.com/Patrick-Fern/workday-scheduler
 
+## Screen Shot of Website 
+![Screen-shot-of-Workday-shceduler](./assets/images/Screenshot.png)
+
+## Contributions
+Made by Patrick Fernbach

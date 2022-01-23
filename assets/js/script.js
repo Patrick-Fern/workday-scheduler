@@ -23,9 +23,14 @@ var setDate = function() {
 
 var loadTasks = function() {
     toDos = JSON.parse(localStorage.getItem("toDos"));
-    
-    for(var i = 0; i < toDos.length; i++){
+
+    if (toDos=== null) {
+        toDos = [];
+        return;
+    } else{
+        for(var i = 0; i < toDos.length; i++){
         document.getElementById(toDos[i].id).value = toDos[i].val
+        }
     }
 }
 
