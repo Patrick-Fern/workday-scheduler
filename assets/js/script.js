@@ -45,9 +45,9 @@ $(".btn").on("click", function (){
     saveTasks();
 })
 
-   
+setDate();
+
 setInterval(function(){
     setDate();
-}, 1800000);
+}, 60000);
 
-setDate();
